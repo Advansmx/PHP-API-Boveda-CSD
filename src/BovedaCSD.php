@@ -56,7 +56,7 @@ class BovedaCSD {
         $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
         if ($http_code != 200 || $result === false) {
-            throw new BovedaCSDException('El servicio regresó un código de error ' . $http_code);
+            throw new BovedaCSDException('El servicio regresó un código de error ' . $http_code . ' ' . $result);
         }
         return $result;
     }
