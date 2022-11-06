@@ -15,7 +15,7 @@ class BovedaCSD {
         return $this->call('version');
     }
 
-    public function cargarCSD(string $public_key, string $private_key, string $key_password) {
+    public function cargarCSD(string $public_key, string $private_key) {
         return $this->call('', 'POST', [
             'public_key' => $public_key,
             'private_key' => $private_key,
