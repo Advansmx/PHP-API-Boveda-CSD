@@ -8,7 +8,8 @@ class BovedaCSDServiceProvider extends ServiceProvider {
 
     public function register() {
         $this->app->singleton('boveda-csd', function ($app) {
-            return new BovedaCSD(config('boveda-csd'));
+            $config = new Config(config('boveda-csd'));
+            return new BovedaCSD($config);
         });
     }
 
