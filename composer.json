@@ -9,8 +9,7 @@
     ],
     "require": {
         "ext-json": "*",
-        "ext-curl": "*",
-        "laravel/lumen-framework": "^8.3"
+        "ext-curl": "*"
     },
     "autoload": {
         "classmap": [
