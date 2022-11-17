@@ -48,7 +48,10 @@ class BovedaCSD {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => $verb,
             CURLOPT_POSTFIELDS => $postfields,
-            CURLOPT_XOAUTH2_BEARER => $this->config->key,
+            CURLOPT_HTTPHEADER => [
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $this->config->key
+            ],
         ]);
         if (!($result = @curl_exec($curl))) {
             throw new BovedaCSDException('Error de conexión');
