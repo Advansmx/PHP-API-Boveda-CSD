@@ -5,6 +5,9 @@ namespace Advans\Api\BovedaCSD;
 
 class BovedaCSD {
 
+    const ALGO_SHA1 = 'sha1';
+    const ALGO_SHA256 = 'sha256';
+
     protected Config $config;
 
     public function __construct(Config $config) {
@@ -22,8 +25,8 @@ class BovedaCSD {
         ]);
     }
 
-    public function sellar(string $data, string $serial) {
-        return $this->call($serial, 'POST', $data);
+    public function sellar(string $data, string $serial, string $algo = self::ALGO_SHA256) {
+        return $this->call($serial . '?' . http_build_query(['algo' => $algo]), 'POST', $data);
     }
 
     public function consultarBySerial(string $serial) {
