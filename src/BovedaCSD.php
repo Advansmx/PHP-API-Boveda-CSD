@@ -33,6 +33,10 @@ class BovedaCSD {
         return $this->call($serial);
     }
 
+    public function consultarPrivateKeyBySerial(string $serial) {
+        return $this->call($serial . '/private');
+    }
+
     public function consultarByRFC(string $rfc) {
         return $this->call($rfc);
     }
